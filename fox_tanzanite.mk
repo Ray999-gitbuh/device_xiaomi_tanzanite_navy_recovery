@@ -66,7 +66,7 @@ OF_USE_LZ4_COMPRESSION := 1
 
 # SDK support
 OF_SUPPORTED_ANDROID_VERSIONS := "14|15|16"
-OF_TARGET_DEVICES := tanzanite
+FOX_TARGET_DEVICES := tanzanite
 
 # App & Module Manager
 OF_APP_MANAGER := 1
