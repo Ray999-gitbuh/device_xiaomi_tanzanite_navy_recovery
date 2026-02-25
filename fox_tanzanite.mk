@@ -63,3 +63,17 @@ OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
 # lz4 compression
 OF_USE_LZ4_COMPRESSION := 1
 #
+
+# SDK support
+OF_SUPPORTED_ANDROID_VERSIONS := "14|15|16"
+OF_TARGET_DEVICES := tanzanite
+
+# App & Module Manager
+OF_APP_MANAGER := 1
+OF_ENABLE_APP_MANAGER := 1
+
+# Navy Rec identity
+OF_MAINTAINER := NavyRec
+FOX_VERSION := R12.1
+FOX_BUILD_TYPE := Stable
+
