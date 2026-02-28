@@ -18,9 +18,6 @@
 # 	Please maintain this if you use this script or any part of it
 #
 
-# maintainer
-OF_MAINTAINER := nx
-
 # screen settings
 OF_SCREEN_H := 2400
 OF_STATUS_H := 87
