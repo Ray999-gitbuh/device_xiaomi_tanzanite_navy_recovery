@@ -16,6 +16,16 @@ on fs
     mkdir /mnt/vendor/persist/data 0755 system system
     mount none /mnt/vendor/persist /persist bind
 
+# Vold
+service vold /system/bin/vold \
+    --blkid_context=u:r:blkid:s0 --blkid_untrusted_context=u:r:blkid_untrusted:s0 \
+    --fsck_context=u:r:fsck:s0 --fsck_untrusted_context=u:r:fsck_untrusted:s0
+    socket vold stream 0660 root mount
+    socket cryptd stream 0660 root mount
+    ioprio be 2
+    writepid /dev/cpuset/foreground/tasks
+    seclabel u:r:recovery:s0
+
 # Services
 service keymint-mitee /vendor/bin/hw/android.hardware.security.keymint@1.0-service.mitee
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
@@ -53,6 +63,7 @@ on property:crypto.ready=1
 on property:hwservicemanager.ready=true
     start keymint-mitee
     start vendor.gatekeeper-1-0
+    start vold
 
 on property:ro.crypto.state=unsupported
     stop keymint-mitee
